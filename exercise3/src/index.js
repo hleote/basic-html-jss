@@ -8,25 +8,23 @@ const favouriteDishes = [
 ];
 
 
-const foodsAdvanceUl = document.querySelector('#foods-advanced');
-
+const foodsUl = document.querySelector('#foods');
 favouriteDishes.map(function (dish) {
     const li = document.createElement('li');
     li.textContent = dish.dishName;
     if (dish.isFavourite) {
         li.textContent = `${dish.dishName} - My favourite`;
     }
-    foodsAdvanceUl.appendChild(li);
+    foodsUl.appendChild(li);
 });
 
-const foodsUl = document.querySelector('#foods');
 
-for (let i = 0; i < favouriteDishes.length; i++) {
+const form = document.querySelector('#foodForm');
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const input = document.querySelector('#foodInput');
     const li = document.createElement('li');
-    li.textContent = favouriteDishes[i].dishName;
-    if (favouriteDishes[i].isFavourite) {
-        li.textContent = `${favouriteDishes[i].dishName} - My favourite`;
-    }
+    li.textContent = input.value;
     foodsUl.appendChild(li);
-}
+});
 
