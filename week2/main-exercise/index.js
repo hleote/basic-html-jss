@@ -4,17 +4,15 @@
  * @param {integer} max - The max number
  * @returns {Number} Random number between min and max
  */
-function randomIntFromInterval(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
+const randomIntFromInterval = (min, max) =>
+    Math.floor(Math.random() * (max - min + 1) + min);
 
 /**
  * Get an array with listing objects with random color and speed
  * @param {integer} numberOfListings - The number of listings
  * @returns {array} Array containing the listing objects
  */
-function generateListings(numberOfListings) {
+const generateListings = (numberOfListings) => {
     const listings = [];
 
     const listingType = ['House', 'Apartment', 'Shed', 'Dorm', 'Farm'];
