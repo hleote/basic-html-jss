@@ -47,17 +47,20 @@ function generateListings(numberOfListings) {
     // ForEach exercise
     listings.forEach(listing => console.log(listing))
 
+
     // Map exercise
     const listingPrices = listings.map(listing => listing.price)
     console.log('listingPrices ', listingPrices)
 
     // Filter exercise
     // Cheap listings
-    const cheapListings = listings.filter(listing => listing.price < 200)
+    const cheapListings = listings.filter(listing => listing.price < 500)
     console.log('cheapListings ', cheapListings)
 
     // Expensive listings
-    const expensiveListings = listings.filter(listing => listing.price > 200)
+    const expensiveListings = listings
+        .filter(listing => listing.price > 500)
+        .map(listing => listing.price);
     console.log('expensiveListings ', expensiveListings)
 
     // Listings with parking
