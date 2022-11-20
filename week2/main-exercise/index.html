@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Week 2 - Final exercise</title>
+    <meta name="description" content="Our first page">
+    <meta name="keywords" content="html tutorial template">
+</head>
+<body>
+<form id="filterForm">
+    <label for="type-filter">Filter the listing below by type:</label>
+    <select name="type filter" id="type-filter">
+        <option value="House">House</option>
+        <option value="Apartment">Apartment</option>
+        <option value="Shed">Shed</option>
+        <option value="Dorm">Dorm</option>
+        <option value="Farm">Farm</option>
+    </select>
+    <label for="facilities-filter">Filter the listing below by facilities:</label>
+    <select name="facilities filter" id="facilities-filter">
+        <option value="Parkering">Parkering</option>
+        <option value="Elevator">Elevator</option>
+        <option value="Altan">Altan</option>
+        <option value="Have">Have</option>
+        <option value="Husdyr">Husdyr</option>
+    </select>
+    <label for="price-filter">Filter the listing below by price:</label>
+    <select name="price filter" id="price-filter">
+        <option value="-1000">-1000</option>
+        <option value="1000 - 3000">1000 - 3000</option>
+        <option value="3000 - 6000">3000 - 6000</option>
+        <option value="+6000">+6000</option>
+    </select>
+    <button id="remove-filters">Remove all filters</button>
+</form>
+<ul id="listings"></ul>
+<script type="text/javascript" src='index.js'></script>
+</body>
+</html>

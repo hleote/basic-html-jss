@@ -7,6 +7,35 @@
 const randomIntFromInterval = (min, max) =>
     Math.floor(Math.random() * (max - min + 1) + min);
 
+const filterListings = (listToFilter = [], filterType = {}) =>
+    listToFilter.filter(item => item.type === filterType.type)
+
+
+const renderListings = (listings, filterType) => {
+    let filteredListing = listings;
+    if (filterType) {
+        filteredListing = filterListings(filteredListing, { type: filterType });
+    }
+    const listingsElement = document.querySelector('#listings');
+    listingsElement.innerHTML = '';
+
+    if (filteredListing.length === 0) {
+        listingsElement.innerHTML = '<h1>No listings found</h1>';
+        return;
+    }
+    filteredListing.forEach(listing => {
+        listingsElement.innerHTML += `
+            <li>
+                <h2>${listing.type}</h2>
+                <p>Price: ${listing.price}</p>
+                <p>Size: ${listing.size}</p>
+                <p>Facilities: ${listing.facilities}</p>
+                <p>Has garden: ${listing.hasGarden}</p>
+            </li>
+        `;
+    });
+}
+
 /**
  * Get an array with listing objects with random color and speed
  * @param {integer} numberOfListings - The number of listings
@@ -43,29 +72,50 @@ const generateListings = (numberOfListings) => {
         listings.push(listing);
     }
     // ForEach exercise
-    listings.forEach(listing => console.log(listing))
+    // listings.forEach(listing => console.log(listing))
 
 
     // Map exercise
     const listingPrices = listings.map(listing => listing.price)
-    console.log('listingPrices ', listingPrices)
+    // console.log('listingPrices ', listingPrices)
 
     // Filter exercise
     // Cheap listings
     const cheapListings = listings.filter(listing => listing.price < 500)
-    console.log('cheapListings ', cheapListings)
+    // console.log('cheapListings ', cheapListings)
 
     // Expensive listings
     const expensiveListings = listings
         .filter(listing => listing.price > 500)
         .map(listing => listing.price);
-    console.log('expensiveListings ', expensiveListings)
+    // console.log('expensiveListings ', expensiveListings)
 
     // Listings with parking
     const listingsWithParking = listings.filter(listing => listing.facilities.includes('Parkering'))
-    console.log('listingsWithParking ', listingsWithParking)
-
+    // console.log('listingsWithParking ', listingsWithParking)
+    renderListings(listings)
     return listings;
 }
 
-generateListings(37);
+const listings = generateListings(5);
+
+
+const selectedTypeFilter = document.querySelector('#type-filter');
+selectedTypeFilter.addEventListener('change', (event) => {
+    const filterType = event.target.value;
+    renderListings(listings, filterType);
+});
+
+
+// TODO: Aditional homework - make it work for the price and facilities filters
+const selectedFacilitiesFilter = document.querySelector('#facilities-filter');
+const selectedPriceFilter = document.querySelector('#price-filter');
+
+
+
+
+// event listener for generating 5 new listings and removing all filters
+const removeAllFilters = document.querySelector('#remove-filters');
+removeAllFilters.addEventListener('click', (event) => {
+    generateListings(5);
+});
