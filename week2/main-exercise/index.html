@@ -25,10 +25,15 @@
     </select>
     <label for="price-filter">Filter the listing below by price:</label>
     <select name="price filter" id="price-filter">
-        <option value="-1000">-1000</option>
-        <option value="1000 - 3000">1000 - 3000</option>
-        <option value="3000 - 6000">3000 - 6000</option>
-        <option value="+6000">+6000</option>
+        <option value="-3000">-3000</option>
+        <option value="+3000">+3000</option>
+    </select>
+    <label for="garden-filter">Filter the listings below by listings with garden:</label>
+    <input type="checkbox" id="garden-filter" name="garden-filter" value="hasGarden"><br>
+    <label for="size-filter">Filter the listing below by size:</label>
+    <select name="size filter" id="size-filter">
+        <option value="-500">-500 square meters</option>
+        <option value="+500">+500 square meters</option>
     </select>
     <button id="remove-filters">Remove all filters</button>
 </form>
