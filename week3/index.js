@@ -46,7 +46,7 @@ const mouseMoveCallback = (e) => {
                 `Average X: ${mouseMovementXArray.reduce((a, b) => a + b, 0) / mouseMovementXArray.length}
                         Average Y: ${mouseMovementYArray.reduce((a, b) => a + b, 0) / mouseMovementYArray.length}`;
             scheduled = false;
-        }, 5000);
+        }, 20000);
     }
 }
 
